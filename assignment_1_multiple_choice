@@ -1,0 +1,68 @@
+1) What are the daemons that are required to start the HDFS?
+B. Name Node, Secondary Name Node, Data Node
+
+2) You need to move a file titled weblogs into HDFS. When you try to copy the file, you can’ t. You know you have ample space on your DataNodes. Which action should you take to relieve this situation and store more files in HDFS?
+(d) Increase the amount of memory for the NameNode.
+
+3) How will the namenode decide that which datanode the data has to be written. Assume the replication factor is 3.
+
+(d) Both (b) and (c)
+
+4) Which command does Hadoop offer to discover missing or corrupt HDFS data?
+(a) fsck
+
+5) Which describes how a client reads a file from HDFS?
+(a) The client queries the NameNode for the block location(s).The NameNode returns
+the block location(s) to the client.The client reads the data directory off the
+DataNode(s).
+
+6) Which of the following are not true?
+(d) (b) and (c) 
+
+7) What action occurs automatically on a cluster when a DataNode is marked as dead?
+(a) The NameNode forces re-replication of all the blocks which were stored on the
+dead DataNode.
+
+
+8) During the MapReduce Job processing splitting of an input file happens
+(c) Line by Line and decided by Input Splitter
+
+
+9) At what stage in MapReduce Job execution, the reduce function of the Job starts?
+(c) after processing for all the map tasks is completed
+
+
+10) MapReduce programming model provides a way for reducers to communicate with
+each other?
+(b) No, each reducer runs independently and in isolation
+
+
+2.(20 points) You have 100 TB of data to store and process with Hadoop. The configuration of each available DataNode is as follows:
+
+• 8 GB RAM
+• 10 TB HDD
+• 100 MB/s read-write speed
+
+(a) Assuming the in memory execution time is negligible, how long would it take to
+process the 100TB of data using only 1 DataNode?
+
+(100*1024*1024) MB/100 MB/s = 1048576 seconds
+1048576 s/ 60 = 17476.2667 minutes
+17476.2667 minutes / 60 = 291.271111 hrs
+
+(b) Your company has a Hadoop Cluster with replication factor=3 and block size=64
+MB. With this configuration, how many DataNodes are required to store the
+100TB data in HDFS?
+
+# of DataNodes = (total amount of data * replication factor) / disk space available
+DataNodes = (100(3))/10
+DataNodes = 30
+
+(c) How long would it take a MapReduce program to finish the same task?
+
+291.27/30 = 9.7 hours
+
+(d) If you want to be able to finish processing the 100TB of data in 5 minutes, how
+many DataNodes you would need?
+
+(1048576 s / 60) / 5 minutes = 3495.253333 Data Nodes
